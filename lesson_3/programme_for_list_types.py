@@ -1,16 +1,14 @@
 my_first_list = ['song', 'singer', 'guitar']
 
-my_first_list.append('music')
-my_first_list.pop()
-my_first_list.sort(reverse=False)
-my_first_list.reverse()
-my_first_list.clear()
-my_second_list = my_first_list.copy()
+my_first_list.append('music') # добавила ещё одно значение в конец списка
+my_first_list.reverse() # значения в обратном порядке
+my_first_list.sort(reverse=True) # значения отсрортированы слева направо
+my_first_list.pop() # удалила первое значение из списка
 
 
 
 print(my_first_list)
-print(my_second_list)
+
 
 
 
