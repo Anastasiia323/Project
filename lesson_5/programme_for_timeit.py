@@ -7,7 +7,7 @@ def write_the_number():
 
 write_the_number()
 
-print('Время работы функции:', timeit.timeit(stmt='write_the_number()', number=1000, globals=globals()))
+print('Время работы функции:', timeit.timeit(stmt='write_the_number()', number=0, globals=globals()))
 
 
 
