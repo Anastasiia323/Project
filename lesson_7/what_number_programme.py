@@ -1,11 +1,12 @@
 # from beartype import beartype
 
-number_2 = int(input('Введите число: '))
-result_2 = lambda number_2 : f'Число чётное' if number_2 % 2 == 0 else f'Число нечётное'
+def what_number() -> str:
+    """Определяю, чётное число или нет с помощью lambda-функции"""
+    number_2 = int(input('Введите число: '))
+    result_2 = lambda number_2 : f'Число чётное' if number_2 % 2 == 0 else f'Число нечётное'
+    return result_2(number_2)
 
-print(result_2(number_2))
-
-
+print(what_number())
 
 #
 # beartype
