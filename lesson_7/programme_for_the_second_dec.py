@@ -20,4 +20,4 @@ def main_func(owner, **pets) -> str:
         print(f'{pet}:{name}')
 
 
-main_func('Anastasiia', Cat='Lisa', Dog='Tom', Fish=['Dori', 'Nemo', 'Goldie'], Pig='Piggy', Horse='Pifagor')
+main_func('Anastasiia', cat='Lisa', dog='Tom', fish=['Dori', 'Nemo', 'Goldie'], pig='Piggy', horse='Pifagor')
