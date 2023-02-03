@@ -8,13 +8,16 @@ age1, age2, age3, age4, age5 = (32, 33, 17, 45, 30)
 
 
 new_dict = {
-    '000001': (name1, age1),
-    '000002': (name2, age2),
-    '000003': (name3, age3),
-    '000004': (name4, age4),
-    '000005': (name5, age4)
+    100001: (name1, age1),
+    100002: (name2, age2),
+    100003: (name3, age3),
+    100004: (name4, age4),
+    100005: (name5, age4)
 }
 
 with open('new_dict_file.json', 'wt') as write_file:
     json.dump(new_dict, write_file, indent=2)
+
+
+
 
