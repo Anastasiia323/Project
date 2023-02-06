@@ -21,3 +21,5 @@ for k, v in my_dict.items():   # обхожу словарь
     # создаю строчку записи в csv
     a = {'id': id, 'name': name, 'age': age, 'number': number}
     writer.writerow(a)
+
+csv_file.close()
