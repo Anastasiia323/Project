@@ -18,6 +18,8 @@ new_dict = {
 with open('new_dict_file.json', 'wt') as write_file:
     json.dump(new_dict, write_file, indent=2)
 
+write_file.close()
+
 
 
 
