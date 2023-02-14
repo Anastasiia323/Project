@@ -9,8 +9,8 @@ file_to_func = open('new_txt_file', 'r')
 def what_count():
     lines = file_to_func.readline()
     summa = 0
-    for i in lines:
-        if i.lower() == letter.lower():
+    for line in lines:
+        if letter.lower() in line:
             summa = summa + 1
     return f'Буква встречается в тексте {summa} раз/раза'
 
