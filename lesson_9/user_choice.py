@@ -3,8 +3,8 @@ from functools import reduce
 
 
 def choose_the_point():
-    with open('sp500.csv') as file:
-        reader = csv.DictReader(file)
+    with open('sp500.csv') as my_file:
+        reader = csv.DictReader(my_file)
         while True:
             # creating a menu
             point_of_menu = input('1. Find info by name\n'
