@@ -7,6 +7,7 @@ from business_logic import (
     update_the_line,
     delete_the_company,
     clean_the_file,
+    record_new_file
 )
 
 from validator import validate_user_choice
@@ -14,12 +15,14 @@ from errors import IncorrectUserInputError
 from validator import (validate_name,
                        validate_price,
                        validate_sector,
-                       validate_symbol)
+                       validate_symbol,
+                       validate_count)
 
 from errors import (SymbolInputError,
                     NameInputError,
                     PriceInputError,
-                    SectorInputError)
+                    SectorInputError,
+                    NumberInputError)
 
 
 while True:
@@ -121,3 +124,16 @@ while True:
     elif point_of_menu == '8':
         result = clean_the_file()
         print(result)
+
+    # deleting all data from the file and
+    # recording new data if user clicked 9
+    elif point_of_menu == '9':
+        count = int(input('Write the number: '))
+
+        try:
+            validate_count(count=count)
+        except NumberInputError as err:
+            print(err)
+            continue
+
+        result = record_new_file(count=count)
