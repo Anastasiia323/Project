@@ -3,7 +3,7 @@ from functools import reduce
 
 
 def choose_the_point():
-    with open('sp500.csv') as my_file:
+    with open('sp500_project/empty.csv') as my_file:
         reader = csv.DictReader(my_file)
         while True:
             # creating a menu
