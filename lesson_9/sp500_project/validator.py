@@ -2,11 +2,13 @@ from errors import IncorrectUserInputError
 from errors import (SymbolInputError,
                     NameInputError,
                     PriceInputError,
-                    SectorInputError)
+                    SectorInputError,
+                    NumberInputError)
 
 from data_access import get_all_records
 
 
+# error for all points
 def validate_user_choice(user_choice):
     if not user_choice.isdigit():
         raise IncorrectUserInputError("Choice must be digit.")
@@ -38,3 +40,8 @@ def validate_price(price):
 def validate_sector(sector):
     if sector not in {row.get('Sector') for row in get_all_records()}:
         raise SectorInputError("Written sector doesn't exist")
+
+
+def validate_count(count):
+    if int(count) > 1000 or int(count) < 1:
+        raise NumberInputError('Written count must be from 1 to 1000!')
