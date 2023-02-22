@@ -4,6 +4,7 @@ from data_access import (
     update_company_name,
     delete_company,
     clean_the_file,
+    record_the_file
 )
 
 from functools import reduce
@@ -93,7 +94,6 @@ def delete_the_company(symbol):
 
 
 # clean file if user clicked 8 (all actions in data module)
-
 def clean_all_lines():
     result = clean_the_file()
     if result:
@@ -101,3 +101,10 @@ def clean_all_lines():
 
     else:
         return "File was not cleaned"
+
+
+# new recording if user clicked 9
+# all actions with data in data module
+def record_new_file(count):
+    result = record_the_file(count=count)
+    return result
