@@ -16,3 +16,7 @@ class PriceInputError(Exception):
 
 class SectorInputError(Exception):
     ...
+
+
+class NumberInputError(Exception):
+    ...
