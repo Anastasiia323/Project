@@ -1,4 +1,7 @@
 import csv
+from faker import Faker
+import random
+import string
 
 
 def get_all_records():
@@ -61,3 +64,28 @@ def clean_the_file():
             result = True
             new_file.writelines(line[:-1])
     return result
+
+
+# cleaning csv file and making a new recording
+# if user clicked 9
+def record_the_file(count):
+    new_dict = []
+    fake = Faker()
+    fieldnames = csv.DictReader(open('sp500.csv')).fieldnames
+    lines = all_records()
+    new_file = open('file_to_test.csv', 'w')
+    for line in lines:
+        new_file.writelines(line[:-1])
+
+    for i in range(count):
+        new_dict.append({
+            'Name': fake.company(),
+            'Symbol': ''.join(random.choices(string.ascii_lowercase.upper(),
+                        k=3)),
+            'Sector': fake.job(),
+            'Price': round((random.random() * 100), 2)}
+        )
+
+    with open('file_to_test.csv', 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        return writer.writerows(new_dict)
