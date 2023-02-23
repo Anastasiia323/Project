@@ -1,9 +1,8 @@
 import csv
-from functools import reduce
 
 
 def choose_the_point():
-    with open('sp500_project/empty.csv') as my_file:
+    with open('sp500.csv') as my_file:
         reader = csv.DictReader(my_file)
         while True:
             # creating a menu
@@ -17,7 +16,7 @@ def choose_the_point():
                 name_of_company = input('Write the company name: ')
                 companies = []
                 for row in reader:
-                    if name_of_company in row['Name']:
+                    if name_of_company.lower() in row['Name'].lower():
                         companies.append(row)
                 return companies
 
@@ -30,22 +29,15 @@ def choose_the_point():
                 return list_of_companies
 
             elif point_of_menu == '3':
-                price = []
-                for row in reader:
-                    price.append(float(row['Price']))
-                av_pr = (reduce(lambda x, y: x + y, price) / len(price))
+                price = [float(row['Price']) for row in reader]
+                av_pr = sum(price) / len(price)
                 return round(av_pr, 4)
 
             elif point_of_menu == '4':
-                companies = []
-                price = []
-                for row in reader:
-                    companies.append(row['Name'])
-                    price.append(row['Price'])
-                fin_pr = list(zip(companies, price))
+                fin_pr = [(row['Name'], row['Price']) for row in reader]
                 fin = sorted(fin_pr, key=lambda x: (x[1]), reverse=True)
                 return fin[1:11]
-            else:
+            elif point_of_menu == '5':
                 return "Good bye!"
 
 
