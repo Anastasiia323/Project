@@ -7,7 +7,7 @@ from data_access import (
     record_the_file
 )
 
-from functools import reduce
+
 from caching import caching_decorator
 
 
@@ -47,23 +47,16 @@ def find_by_sector(sector_name):
 
 # function to find average price if user clicked 3
 def average_price():
-    price = []
-    for row in get_all_records():
-        price.append(float(row['Price']))
-    av_pr = (reduce(lambda x, y: x + y, price) / len(price))
+    price = [float(row['Price']) for row in get_all_records()]
+    av_pr = sum(price) / len(price)
     result = round(av_pr, 4)
     return result
 
 
 # finding companies with the most expansive share
-# if user clicked 3
+# if user clicked 4
 def get_top_10():
-    companies = []
-    price = []
-    for row in get_all_records():
-        companies.append(row['Name'])
-        price.append(row['Price'])
-    fin_pr = list(zip(companies, price))
+    fin_pr = [(row['Name'], row['Price']) for row in get_all_records()]
     fin = sorted(fin_pr, key=lambda x: (x[1]), reverse=True)
     result = fin[1:11]
     return result
